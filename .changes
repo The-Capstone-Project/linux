@@ -1,0 +1,37 @@
+----- General Setup -----
+i. changed kernel compression to LZ4 (less compressed, faster booting)
+
+ii. changed default hostname to "capstone"
+
+iii. turned off POSIX message Queues (unnessacary overhead, pipes and sockets are enough for IPC)
+
+iv. disabled uselib syscall (legacy)
+
+
+----- Processor Type and Features -----
+i. disabled support for non-PC x86 platforms
+
+ii. disabled rerouting for broken boot IRQs.
+    boot Interrupt Requests (IRQs) help the boot process to initialize devices. modern hardware rarely
+	has any issues with boot IRQs
+
+iii. disabled IOPERM and IOPL (Input Output Permissions Bitmap and I/O Privilege Level)
+     This emulates direct hardware access for software that require it, however it is only needed for 
+	 legacy software designed to directly access hardware.
+
+iv. disabled 5-level page tables support
+    no one has > 256TB worth of ram. (this is a desktop OS)
+
+v. set mtrr (memory type range registers) cleanup regiters number to 1.
+   mtrr cleanup helps prevent stale mtrr registers. 
+   the number of spare registers is set to 1 here.
+
+
+----- Networking -----
+i. disabled amatuer radio support (we're not running any ham radio things)
+
+
+----- Block Devices -----
+i. number of loop devices precreated at init time set to 0
+   modern systems create loop devices dynamically are they're not required on init.
+
