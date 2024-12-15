@@ -1,18 +1,15 @@
-Linux kernel
-============
+# The Capstone Project - AI-Optimized Linux Kernel  
 
-There are several guides for kernel developers and users. These guides can
-be rendered in a number of formats, like HTML and PDF. Please read
-Documentation/admin-guide/README.rst first.
+This is a custom Linux kernel built specifically for **AI workloads** as part of *The Capstone Project*. The goal was to strip out unnecessary features, reduce system overhead, and optimize performance for tasks like machine learning and data processing on modern hardware.  
 
-In order to build the documentation, use ``make htmldocs`` or
-``make pdfdocs``.  The formatted documentation can also be read online at:
+## What’s Different?  
 
-    https://www.kernel.org/doc/html/latest/
+- **Faster Startup**: Kernel compression switched to **LZ4**, trading a bit of compression for quicker boot times.  
+- **Simplified Features**: Removed legacy functionality (like old hardware emulation and outdated system calls) to make the system leaner and more efficient.  
+- **Optimized for Modern PCs**: Stripped out support for hardware that's currently never used, like non-PC x86 platforms and configurations meant for servers or older systems.  
+- **Better Memory Handling**: Tweaked memory settings to better support AI workloads without bloating the system.  
 
-There are various text files in the Documentation/ subdirectory,
-several of them using the reStructuredText markup notation.
+---  
 
-Please read the Documentation/process/changes.rst file, as it contains the
-requirements for building and running the kernel, and information about
-the problems which may result by upgrading your kernel.
+For more details on changes read the .changes file.  
+For more details on the kernel, visit https://docs.kernel.org
